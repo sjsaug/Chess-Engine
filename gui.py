@@ -1,10 +1,23 @@
 import arcade
 from typing import Tuple
 
+class Piece:
+    Nothing = 0
+    King = 1
+    Pawn = 2
+    Knight = 3
+    Bishop = 4
+    Rook = 5
+    Queen = 6
+    White = 8
+    Black = 16
+
 # Constants
 SCREEN_WIDTH = 512
 SCREEN_HEIGHT = 512
 SCREEN_TITLE = "Chess Engine"
+
+
 
 def draw_board():
     for row in range(8):
