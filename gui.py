@@ -61,12 +61,11 @@ def draw_board(board):
             draw_piece(board[row][column], column, row)
 
 def setup_window():
-    window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+    arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
     arcade.set_background_color(arcade.color.WHITE)
-    return window
 
 def main():
-    window = setup_window()
+    setup_window()
     arcade.start_render()
     draw_board(board)
     arcade.finish_render()
