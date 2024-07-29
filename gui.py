@@ -30,13 +30,23 @@ PIECE_IMAGES = {
     'bQ': 'pieces/bQueen.png',
     'bK': 'pieces/bKing.png'
 }
+board = [
+        ['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR'],
+        ['bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP'],
+        ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
+        ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
+        ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
+        ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
+        ['wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP'],
+        ['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']
+    ]
 
 def draw_piece(piece, column, row):
     if piece in PIECE_IMAGES:
         texture = arcade.load_texture(PIECE_IMAGES[piece])
         x = (column * 64) + 32
         y = (row * 64) + 32
-        arcade.draw_scaled_texture_rectangle(x, y, texture.width / 2, texture.height /2, texture)
+        texture.draw_scaled(x, y, 1)
 
 def draw_board(board):
     for row in range(8):
@@ -58,18 +68,6 @@ def setup_window():
 def main():
     window = setup_window()
     arcade.start_render()
-
-    board = [
-        ['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR'],
-        ['bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP'],
-        ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
-        ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
-        ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
-        ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
-        ['wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP'],
-        ['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']
-    ]
-
     draw_board(board)
     arcade.finish_render()
     arcade.run()
